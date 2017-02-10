@@ -7,6 +7,7 @@ pymlask is a Python version of ML-Ask (eMotive eLement and Expression Analysis s
 
 For details about ML-Ask, See http://arakilab.media.eng.hokudai.ac.jp/~ptaszynski/repository/mlask.htm
 
+See also http://qiita.com/yukinoi/items/ef6fb48b5e3694e9659c (in Japanese)
 
 Contributions are welcome!
 
