@@ -60,10 +60,10 @@ ML-Ask (original): The BSD 3-Clause License
     :target: https://coveralls.io/r/ikegami-yukino/pymlask
     :alt: coveralls.io
 
-.. |pyversion| image:: https://img.shields.io/pypi/pyversions/mlask.svg
+.. |pyversion| image:: https://img.shields.io/pypi/pyversions/pymlask.svg
 
-.. |version| image:: https://img.shields.io/pypi/v/mlask.svg
-    :target: http://pypi.python.org/pypi/mlask/
+.. |version| image:: https://img.shields.io/pypi/v/pymlask.svg
+    :target: http://pypi.python.org/pypi/pymlask/
     :alt: latest version
 
 .. |landscape| image:: https://landscape.io/github/ikegami-yukino/pymlask/master/landscape.svg?style=flat
