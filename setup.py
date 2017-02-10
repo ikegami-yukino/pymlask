@@ -12,7 +12,7 @@ setup(
     name='pymlask',
     packages=['mlask'],
     version=version,
-    license='Apache Software License',
+    license='The BSD 3-Clause License',
     platforms=['POSIX', 'Windows', 'Unix', 'MacOS'],
     description='Emotion analyzer for Japanese',
     author='Yukino Ikegami',
