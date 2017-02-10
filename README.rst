@@ -52,12 +52,12 @@ ML-Ask Python: The BSD 3-Clause License
 ML-Ask (original): The BSD 3-Clause License
 (c) 2007-2013, Michal Ptaszynski, Pawel Dybala, Rafal Rzepka, Kenji Arakii. All Rights Reserved.
 
-.. |travis| image:: https://travis-ci.org/ikegami-yukino/mlask-python.svg?branch=master
-    :target: https://travis-ci.org/ikegami-yukino/mlask-python
+.. |travis| image:: https://travis-ci.org/ikegami-yukino/pymlask.svg?branch=master
+    :target: https://travis-ci.org/ikegami-yukino/pymlask
     :alt: travis-ci.org
 
-.. |coveralls| image:: https://coveralls.io/repos/ikegami-yukino/mlask-python/badge.png
-    :target: https://coveralls.io/r/ikegami-yukino/mlask-python
+.. |coveralls| image:: https://coveralls.io/repos/ikegami-yukino/pymlask/badge.png
+    :target: https://coveralls.io/r/ikegami-yukino/pymlask
     :alt: coveralls.io
 
 .. |pyversion| image:: https://img.shields.io/pypi/pyversions/mlask.svg
@@ -66,8 +66,8 @@ ML-Ask (original): The BSD 3-Clause License
     :target: http://pypi.python.org/pypi/mlask/
     :alt: latest version
 
-.. |landscape| image:: https://landscape.io/github/ikegami-yukino/mlask-python/master/landscape.svg?style=flat
-   :target: https://landscape.io/github/ikegami-yukino/mlask-python/master
+.. |landscape| image:: https://landscape.io/github/ikegami-yukino/pymlask/master/landscape.svg?style=flat
+   :target: https://landscape.io/github/ikegami-yukino/pymlask/master
    :alt: Code Health
 
 .. |license| image:: https://img.shields.io/pypi/l/mlask.svg
