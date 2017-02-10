@@ -128,14 +128,17 @@ class MLAsk(object):
 
         node = self.mecab.parseToNode(text)
         while node:
-            surface = node.surface
-            features = node.feature.split(',')
-            (pos, subpos, lemma) = features[0], features[1], features[6]
-            lemmas['all'].append(lemma)
-            if RE_POS.search(pos + subpos) or RE_MIDAS.search(surface):
-                lemmas['interjections'].append(surface)
-            else:
-                lemmas['no_emotem'].append(surface)
+            try:
+                surface = node.surface
+                features = node.feature.split(',')
+                (pos, subpos, lemma) = features[0], features[1], features[6]
+                lemmas['all'].append(lemma)
+                if RE_POS.search(pos + subpos) or RE_MIDAS.search(surface):
+                    lemmas['interjections'].append(surface)
+                else:
+                    lemmas['no_emotem'].append(surface)
+            except UnicodeDecodeError:
+                pass
             node = node.next
 
         lemmas['all'] = ''.join(lemmas['all']).replace('*', '')
