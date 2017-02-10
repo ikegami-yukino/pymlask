@@ -1,0 +1,11 @@
+.venv
+build/*
+dist/*
+*.egg-info
+*.pyc
+.svn
+*.swp
+*.swo
+*.bak
+.DS_Store
+.coverage
