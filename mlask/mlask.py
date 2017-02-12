@@ -171,7 +171,6 @@ class MLAsk(object):
             if len(found) > 0:
                 found = [x for x in found if len(x) > 0]
                 emotemy[emotem_class] = found
-                print(emotem_class, emotemy[emotem_class])
         return emotemy
 
     def _find_emotion(self, text):
