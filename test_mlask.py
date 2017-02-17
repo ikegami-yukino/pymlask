@@ -25,7 +25,7 @@ def test__find_emoticon():
 
 def test__find_emotem():
     assert_equals(mla._find_emotem({'no_emotem': '(;´Д`)', 'interjections': '！'}, []),
-                  {'interjections': ['！']})
+                  {'emotikony': ['´Д`', 'Д`', '´Д'], 'interjections': ['！']})
 
 def test__find_emotion():
     assert_equals(mla._find_emotion('嫌い'), {'iya': ['嫌い', '嫌']})
