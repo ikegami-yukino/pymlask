@@ -33,7 +33,7 @@ Example
  #     'activation': 'ACTIVE',
  #     'emoticon': ['(;´Д`)'],
  #     'intension': 2,
- #     'intensifier': {'exclamation': ['！'], 'emotikony': ['(;´Д`)']},
+ #     'intensifier': {'exclamation': ['！'], 'emotikony': ['´Д`', 'Д`', '´Д', '(;´Д`)']},
  #     'representative': ('yorokobi', ['嫌い*CVS'])
  #     }
 
