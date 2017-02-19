@@ -23,14 +23,14 @@ RE_PARTICLES = '[だとはでがはもならじゃちってんすあ]*'
 RE_CVS = 'いまひとつもない|なくても?問題ない|わけに[はも]?いかない|わけに[はも]?いくまい|いまひとつない|ちょ?っとも?ない|なくても?大丈夫|今ひとつもない|訳にはいくまい|訳に[はも]?[行い]かない|そんなにない|ぜったいない|まったくない|すこしもない|いまいちない|ぜんぜんない|そもそもない|いけない|ゼッタイない|今ひとつない|今一つもない|行けない|あまりない|なくていい|なくても?OK|なくても?結構|少しもない|今一つない|今いちない|言えるない|いえるない|行かん|あかん|いかん|なくても?良い|てはだめ|[ちじ]ゃだめ|余りない|絶対ない|全くない|今一ない|全然ない|もんか|ものか|あるますん|ない|いない|思うない|思えるない|訳[がではもじゃ]*ない|わけ[がではもじゃ]?ない'
 CVS_TABLE = {
     'suki': ['iya'],
-    'ikari': ['yas'],
-    'kowa': ['yas'],
-    'yas': ['ikari', 'takaburi', 'odoroki', 'haji', 'kowa'],
+    'ikari': ['yasu'],
+    'kowa': ['yasu'],
+    'yasu': ['ikari', 'takaburi', 'odoroki', 'haji', 'kowa'],
     'iya': ['yorokobi', 'suki'],
     'aware': ['suki', 'yorokobi', 'takaburi', 'odoroki', 'haji'],
-    'takaburi': ['yas', 'aware'],
-    'odoroki': ['yas', 'aware'],
-    'haji': ['yas', 'aware'],
+    'takaburi': ['yasu', 'aware'],
+    'odoroki': ['yasu', 'aware'],
+    'haji': ['yasu', 'aware'],
     'yorokobi': ['iya']
 }
 
