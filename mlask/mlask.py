@@ -176,7 +176,7 @@ class MLAsk(object):
     def _find_emotion(self, text):
         """ Finding emotion word by dictionaries """
         found_emotions = collections.defaultdict(list)
-        for emotion_class, emotions in list(self.emodic['emotion'].items()):
+        for emotion_class, emotions in self.emodic['emotion'].items():
             for emotion in emotions:
                 if emotion not in text:
                     continue
@@ -193,7 +193,7 @@ class MLAsk(object):
         """ Estimating sentiment orientation (POSITIVE, NEUTRAL, NEGATIVE) """
         orientation = ''
         if emotions:
-            how_many_valence = ''.join(list(emotions.keys()))
+            how_many_valence = ''.join(emotions.keys())
             how_many_valence = RE_VALANCE_POS.sub('P', how_many_valence)
             how_many_valence = RE_VALANCE_NEG.sub('N', how_many_valence)
             how_many_valence = RE_VALANCE_NEU.sub('NorP', how_many_valence)
@@ -211,7 +211,7 @@ class MLAsk(object):
         """ Estimating activeness (ACTIVE, NEUTRAL, PASSIVE) """
         activation = ''
         if emotions:
-            how_many_activation = ''.join(list(emotions.keys()))
+            how_many_activation = ''.join(emotions.keys())
             how_many_activation = RE_ACTIVATION_A.sub('A', how_many_activation)
             how_many_activation = RE_ACTIVATION_D.sub('P', how_many_activation)
             how_many_activation = RE_ACTIVATION_N.sub('NEUTRAL', how_many_activation)
