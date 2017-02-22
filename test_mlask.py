@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 from nose.tools import assert_equals, assert_true, assert_false, assert_raises
 from mlask import MLAsk
 

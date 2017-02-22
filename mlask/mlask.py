@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
+from __future__ import unicode_literals
 import os
 import codecs
 import re
 import collections
 import pkgutil
+from sys import version_info
 import MeCab
+
 
 """
 ML-Ask (eMotive eLement and Expression Analysis system) is a keyword-based language-dependent system
@@ -17,6 +20,7 @@ It uses a two-step procedure:
 Original Perl version by Michal Ptaszynski
 Python version by Yukino Ikegami
 """
+PY2 = True if version_info < (3,) else False
 
 # cvs stands for "Contextual Valence Shifters"
 RE_PARTICLES = '[だとはでがはもならじゃちってんすあ]*'
@@ -52,6 +56,8 @@ RE_ACTIVATION_N = re.compile('iya|yorokobi|suki')
 class MLAsk(object):
 
     def __init__(self, mecab_arg=''):
+        if PY2:
+            mecab_arg = mecab_arg.encode('utf8')
         self.mecab = MeCab.Tagger(mecab_arg)
         self._read_emodic()
 
@@ -126,11 +132,17 @@ class MLAsk(object):
         """ By MeCab, doing lemmatisation and finding emotive indicator """
         lemmas = {'all': [], 'interjections': [], 'no_emotem': []}
 
+        if PY2:
+            text = text.encode('utf8')
         node = self.mecab.parseToNode(text)
         while node:
             try:
-                surface = node.surface
-                features = node.feature.split(',')
+                if PY2:
+                    surface = node.surface.decode('utf8')
+                    features = node.feature.decode('utf8').split(',')
+                else:
+                    surface = node.surface
+                    features = node.feature.split(',')
                 (pos, subpos, lemma) = features[0], features[1], features[6]
                 lemmas['all'].append(lemma)
                 if RE_POS.search(pos + subpos) or RE_MIDAS.search(surface):
@@ -230,4 +242,4 @@ class MLAsk(object):
         '''
         Extract emotion has most longest word from emotional words
         '''
-        return sorted(list(emotions.items()), key=lambda x: len(x[1][0]), reverse=True)[0]
+        return sorted(emotions.items(), key=lambda x: len(x[1][0]), reverse=True)[0]
