@@ -143,7 +143,10 @@ class MLAsk(object):
                 else:
                     surface = node.surface
                     features = node.feature.split(',')
-                (pos, subpos, lemma) = features[0], features[1], features[6]
+                if len(features) > 7:
+                    (pos, subpos, lemma) = features[0], features[1], features[6]
+                else:
+                    (pos, subpos, lemma) = features[0], features[1], surface
                 lemmas['all'].append(lemma)
                 if RE_POS.search(pos + subpos) or RE_MIDAS.search(surface):
                     lemmas['interjections'].append(surface)
