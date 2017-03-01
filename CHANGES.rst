@@ -2,6 +2,13 @@ CHANGES
 =======
 
 
+0.2.2 (2017-03-01)
+-------------------------
+
+- Add some emotional words
+- Delete invalid words
+- Correct typo
+
 0.2.1 (2017-02-23)
 -------------------------
 
