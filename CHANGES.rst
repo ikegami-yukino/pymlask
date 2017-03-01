@@ -2,9 +2,10 @@ CHANGES
 =======
 
 
-0.2.2 (2017-03-01)
+0.2.3 (2017-03-01)
 -------------------------
 
+- Fix bug
 - Add some emotional words
 - Delete invalid words
 - Correct typo
