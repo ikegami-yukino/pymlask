@@ -60,6 +60,8 @@ class MLAsk(object):
             mecab_arg = mecab_arg.encode('utf8')
         self.mecab = MeCab.Tagger(mecab_arg)
         self._read_emodic()
+        if not PY2:
+            self.mecab.parse('')
 
     def _read_emodic(self):
         """ Load emotion dictionaries """
@@ -145,13 +147,18 @@ class MLAsk(object):
                     features = node.feature.split(',')
                 if len(features) > 7:
                     (pos, subpos, lemma) = features[0], features[1], features[6]
+                elif len(features) == 1:
+                    pos = None
+                    subpos = None
+                    lemma = None
                 else:
                     (pos, subpos, lemma) = features[0], features[1], surface
-                lemmas['all'].append(lemma)
-                if RE_POS.search(pos + subpos) or RE_MIDAS.search(surface):
-                    lemmas['interjections'].append(surface)
-                else:
-                    lemmas['no_emotem'].append(surface)
+                if not pos is None and not subpos is None and not lemma is None:
+                    lemmas['all'].append(lemma)
+                    if RE_POS.search(pos + subpos) or RE_MIDAS.search(surface):
+                        lemmas['interjections'].append(surface)
+                    else:
+                        lemmas['no_emotem'].append(surface)
             except UnicodeDecodeError:
                 pass
             node = node.next
