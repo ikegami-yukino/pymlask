@@ -36,6 +36,5 @@ setup(
     long_description='%s\n\n%s' % (open('README.rst', encoding='utf8').read(),
                                    open('CHANGES.rst', encoding='utf8').read()),
     package_data={'mlask': ['emotemes/*.txt', 'emotions/*.txt']},
-    install_requires=['mecab-python3'],
     test_suite='nose.collector'
 )
