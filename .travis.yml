@@ -17,7 +17,7 @@ before_install:
   - sudo apt-get install -y mecab-ipadic-utf8
 install:
   - "python setup.py install"
-  - "pip install coveralls"
+  - "pip install coveralls mecab-python3"
 script:
   - "nosetests --with-coverage --cover-package=mlask"
 after_success:
