@@ -1,6 +1,11 @@
 CHANGES
 =======
 
+0.2.5 (2017-09-14)
+-------------------------
+
+- Fix bugs about MeCab (thanks @Kensuke-Mitsuzawa)
+- Delete install_requires
 
 0.2.4 (2017-03-01)
 -------------------------
