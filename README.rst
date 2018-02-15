@@ -14,10 +14,17 @@ Contributions are welcome!
 
 Installation
 ==============
+Modified dictionary version
 
 ::
 
  pip install pymlask
+
+ML-Ask Original dictionary version
+
+::
+
+ pip install git+https://github.com/ikegami-yukino/pymlask@original
 
 Example
 ===========
