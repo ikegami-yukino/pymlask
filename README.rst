@@ -17,7 +17,7 @@ Installation
 
 ::
 
- pip install pymlask
+ pip install git+https://github.com/ikegami-yukino/pymlask@original
 
 Example
 ===========
