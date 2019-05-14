@@ -56,6 +56,19 @@ RE_ACTIVATION_N = re.compile('iya|yorokobi|suki')
 class MLAsk(object):
 
     def __init__(self, mecab_arg=''):
+        """Initialize MLAsk.
+
+        Parameters
+        ----------
+        mecab_arg : str
+            Argument parameters for MeCab.
+
+        Examples
+        --------
+        >>> import mlask
+        >>> mlask.MLAsk('-d /usr/local/lib/mecab/dic/ipadic')  #doctest: +ELLIPSIS
+        <mlask.MLAsk object at 0x...>
+        """
         if PY2:
             mecab_arg = mecab_arg.encode('utf8')
         self.mecab = MeCab.Tagger(mecab_arg)
@@ -85,7 +98,25 @@ class MLAsk(object):
             self.emodic['emotion'][emotion_class] = phrases
 
     def analyze(self, text):
-        """ Detect emotion from text """
+        """ Detect emotion from text
+
+        Parameters
+        ----------
+        text : str
+            Target text.
+
+        Return
+        ------
+        dict
+            Result of emotion analysis.
+
+        Examples
+        --------
+        >>> import mlask
+        >>> ma = mlask.MLAsk()
+        >>> ma.analyze('彼女のことが嫌いではない！(;´Д`)')
+        {'text': '彼女のことが嫌いではない！(;´Д`)', 'emotion': defaultdict(<class 'list'>, {'iya': ['嫌'], 'yorokobi': ['嫌い*CVS'], 'suki': ['嫌い*CVS']}), 'orientation': 'mostly_POSITIVE', 'activation': 'ACTIVE', 'emoticon': ['(;´Д`)'], 'intension': 2, 'intensifier': {'exclamation': ['！'], 'emotikony': ['´Д`', 'Д`', '´Д', '(;´Д`)']}, 'representative': ('yorokobi', ['嫌い*CVS'])}
+        """
         # Normalizing
         text = self._normalize(text)
 
