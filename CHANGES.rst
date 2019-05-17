@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+0.3 (2019-05-17)
+-------------------------
+
+- The 712 emotional words from Kanjou kotoba erabi jiten (感情ことば選び辞典) are newly added
+- Support Python 3.7
+- Unsupport Python 2.6 and 3.3
+
 0.2.5 (2017-09-14)
 -------------------------
 
