@@ -167,15 +167,15 @@ class MLAsk(object):
 
         if PY2:
             text = text.encode('utf8')
-        node = self.mecab.parseToNode(text)
-        while node:
+        for line in self.mecab.parse(text).splitlines():
             try:
                 if PY2:
-                    surface = node.surface.decode('utf8')
-                    features = node.feature.decode('utf8').split(',')
-                else:
-                    surface = node.surface
-                    features = node.feature.split(',')
+                    line = line.decode('utf8')
+                row = line.split('\t')
+                if len(row) < 2:
+                    continue
+                surface = row[0]
+                features = row[1].split(',')
                 if len(features) > 7:
                     (pos, subpos, lemma) = features[0], features[1], features[6]
                 elif len(features) == 1:
@@ -184,7 +184,7 @@ class MLAsk(object):
                     lemma = None
                 else:
                     (pos, subpos, lemma) = features[0], features[1], surface
-                if not pos is None and not subpos is None and not lemma is None:
+                if pos and subpos and lemma:
                     lemmas['all'].append(lemma)
                     if RE_POS.search(pos + subpos) or RE_MIDAS.search(surface):
                         lemmas['interjections'].append(surface)
@@ -192,7 +192,6 @@ class MLAsk(object):
                         lemmas['no_emotem'].append(surface)
             except UnicodeDecodeError:
                 pass
-            node = node.next
 
         lemmas['all'] = ''.join(lemmas['all']).replace('*', '')
         lemmas['no_emotem'] = ''.join(lemmas['no_emotem'])
