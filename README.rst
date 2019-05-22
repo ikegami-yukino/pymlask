@@ -1,7 +1,7 @@
 pymlask
 ===================
 
-|travis| |coveralls| |pyversion| |version|  |landscape|  |license|
+|travis| |coveralls| |pyversion| |version| |license|
 
 pymlask is a Python version of ML-Ask (eMotive eLement and Expression Analysis system)
 
@@ -73,10 +73,6 @@ ML-Ask (original): The BSD 3-Clause License
 .. |version| image:: https://img.shields.io/pypi/v/pymlask.svg
     :target: http://pypi.python.org/pypi/pymlask/
     :alt: latest version
-
-.. |landscape| image:: https://landscape.io/github/ikegami-yukino/pymlask/master/landscape.svg?style=flat
-   :target: https://landscape.io/github/ikegami-yukino/pymlask/master
-   :alt: Code Health
 
 .. |license| image:: https://img.shields.io/pypi/l/mlask.svg
     :target: http://pypi.python.org/pypi/mlask/
