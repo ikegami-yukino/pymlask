@@ -1,6 +1,11 @@
 CHANGES
 =======
 
+0.3.1 (2019-05-22)
+-------------------------
+
+- Use MeCab.Tagger().parse() instead of MeCab.Tagger().parseToNode
+
 0.3 (2019-05-17)
 -------------------------
 
