@@ -30,8 +30,8 @@ def test__find_emotem():
                   {'emotikony': ['´Д`', 'Д`', '´Д'], 'interjections': ['！']})
 
 def test__find_emotion():
-	lemmas = {'all': '嫌い', 'lemma_words': ['嫌い']}
-	assert_equals(mla._find_emotion(lemmas), {'iya': ['嫌い']})
+    lemmas = {'all': '嫌い', 'lemma_words': ['嫌い']}
+    assert_equals(mla._find_emotion(lemmas), {'iya': ['嫌い']})
 
 def test__estimate_sentiment_orientation():
     assert_equals(mla._estimate_sentiment_orientation({'iya': ['嫌い', '嫌']}), 'NEGATIVE')
