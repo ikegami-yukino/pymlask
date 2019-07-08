@@ -131,7 +131,7 @@ class MLAsk(object):
         intension = len(list(intensifier.values()))
 
         # Finding emotional words
-        emotions = self._find_emotion(lemmas['all'])
+        emotions = self._find_emotion(lemmas)
 
         # Estimating sentiment orientation {POSITIVE, NEUTRAL, NEGATIVE}
         orientation = self._estimate_sentiment_orientation(emotions)
@@ -163,7 +163,7 @@ class MLAsk(object):
 
     def _lexical_analysis(self, text):
         """ By MeCab, doing lemmatisation and finding emotive indicator """
-        lemmas = {'all': [], 'interjections': [], 'no_emotem': []}
+        lemmas = {'all': '', 'interjections': [], 'no_emotem': [], 'lemma_words': []}
 
         if PY2:
             text = text.encode('utf8')
@@ -185,7 +185,7 @@ class MLAsk(object):
                 else:
                     (pos, subpos, lemma) = features[0], features[1], surface
                 if pos and subpos and lemma:
-                    lemmas['all'].append(lemma)
+                    lemmas['lemma_words'].append(lemma)
                     if RE_POS.search(pos + subpos) or RE_MIDAS.search(surface):
                         lemmas['interjections'].append(surface)
                     else:
@@ -193,7 +193,7 @@ class MLAsk(object):
             except UnicodeDecodeError:
                 pass
 
-        lemmas['all'] = ''.join(lemmas['all']).replace('*', '')
+        lemmas['all'] = ''.join(lemmas['lemma_words']).replace('*', '')
         lemmas['no_emotem'] = ''.join(lemmas['no_emotem'])
         return lemmas
 
@@ -225,16 +225,17 @@ class MLAsk(object):
                 emotemy[emotem_class] = found
         return emotemy
 
-    def _find_emotion(self, text):
+    def _find_emotion(self, lemmas):
         """ Finding emotion word by dictionaries """
+        text_lemmas = set(lemmas['lemma_words'])
         found_emotions = collections.defaultdict(list)
         for emotion_class, emotions in self.emodic['emotion'].items():
             for emotion in emotions:
-                if emotion not in text:
+                if emotion not in text_lemmas:
                     continue
                 cvs_regex = re.compile('%s(?:%s(%s))' % (emotion, RE_PARTICLES, RE_CVS))
                 # if there is Contextual Valence Shifters
-                if cvs_regex.findall(text):
+                if cvs_regex.findall(lemmas['all']):
                     for new_emotion_class in CVS_TABLE[emotion_class]:
                         found_emotions[new_emotion_class].append(emotion + "*CVS")
                 else:
