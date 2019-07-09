@@ -2,7 +2,6 @@
 from __future__ import print_function
 from __future__ import unicode_literals
 import os
-import codecs
 import re
 import collections
 import pkgutil
@@ -154,7 +153,7 @@ class MLAsk(object):
             result = {
                 'text': text,
                 'emotion': None
-                }
+            }
         return result
 
     def _normalize(self, text):
@@ -261,7 +260,7 @@ class MLAsk(object):
             else:
                 if num_negative > 0 and num_positive > 0:
                     orientation += 'mostly_'
-                orientation +='POSITIVE' if num_positive > num_negative else 'NEGATIVE'
+                orientation += 'POSITIVE' if num_positive > num_negative else 'NEGATIVE'
             return orientation
 
     def _estimate_activation(self, emotions):
