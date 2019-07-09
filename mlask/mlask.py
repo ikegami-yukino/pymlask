@@ -114,7 +114,7 @@ class MLAsk(object):
         >>> import mlask
         >>> ma = mlask.MLAsk()
         >>> ma.analyze('彼女のことが嫌いではない！(;´Д`)')
-        {'text': '彼女のことが嫌いではない！(;´Д`)', 'emotion': defaultdict(<class 'list'>, {'iya': ['嫌'], 'yorokobi': ['嫌い*CVS'], 'suki': ['嫌い*CVS']}), 'orientation': 'mostly_POSITIVE', 'activation': 'ACTIVE', 'emoticon': ['(;´Д`)'], 'intension': 2, 'intensifier': {'exclamation': ['！'], 'emotikony': ['´Д`', 'Д`', '´Д', '(;´Д`)']}, 'representative': ('yorokobi', ['嫌い*CVS'])}
+        {'text': '彼女のことが嫌いではない！(;´Д`)', 'emotion': defaultdict(<class 'list'>, {'yorokobi': ['嫌い*CVS'], 'suki': ['嫌い*CVS']}), 'orientation': 'POSITIVE', 'activation': 'NEUTRAL', 'emoticon': ['(;´Д`)'], 'intension': 2, 'intensifier': {'exclamation': ['！'], 'emotikony': ['´Д`', 'Д`', '´Д', '(;´Д`)']}, 'representative': ('yorokobi', ['嫌い*CVS'])}
         """
         # Normalizing
         text = self._normalize(text)
