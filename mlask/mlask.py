@@ -49,7 +49,7 @@ RE_VALANCE_POS = re.compile('yasu|yorokobi|suki')
 RE_VALANCE_NEG = re.compile('iya|aware|ikari|kowa')
 RE_VALANCE_NEU = re.compile('takaburi|odoroki|haji')
 RE_ACTIVATION_A = re.compile('takaburi|odoroki|haji|ikari|kowa')
-RE_ACTIVATION_D = re.compile('yasu|aware')
+RE_ACTIVATION_P = re.compile('yasu|aware')
 RE_ACTIVATION_N = re.compile('iya|yorokobi|suki')
 
 
@@ -270,7 +270,7 @@ class MLAsk(object):
         if emotions:
             how_many_activation = ''.join(emotions.keys())
             how_many_activation = RE_ACTIVATION_A.sub('A', how_many_activation)
-            how_many_activation = RE_ACTIVATION_D.sub('P', how_many_activation)
+            how_many_activation = RE_ACTIVATION_P.sub('P', how_many_activation)
             how_many_activation = RE_ACTIVATION_N.sub('N', how_many_activation)
             count_activation_A = how_many_activation.count('A')
             count_activation_P = how_many_activation.count('P')
