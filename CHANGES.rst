@@ -1,6 +1,12 @@
 CHANGES
 =======
 
+0.3.2 (2019-07-09)
+-------------------------
+
+- Fix bugs about emotion pattern matching (thanks @brunotoshio)
+- Fix bug about activation count (thanks @brunotoshio)
+
 0.3.1 (2019-05-22)
 -------------------------
 
