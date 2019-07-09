@@ -20,7 +20,7 @@ Modified dictionary version
 
  pip install pymlask
 
-ML-Ask Original dictionary version
+ML-Ask Original dictionary version (same as Ptaszynski's Perl version)
 
 ::
 
