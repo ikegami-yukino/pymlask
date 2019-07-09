@@ -12,6 +12,8 @@ def test__read_emodic():
 def test_analyze():
     result = mla.analyze('彼は嫌いではない！(;´Д`)')
     assert_equals(result['text'], '彼は嫌いではない！(;´Д`)')
+    result = mla.analyze('')
+    assert_equals(result, {'text': '', 'emotion': None})
 
 def test__normalize():
     assert_equals(mla._normalize('!'), '！')
@@ -19,7 +21,7 @@ def test__normalize():
 
 def test__lexical_analysis():
     assert_equals(mla._lexical_analysis('すごい'),
-                  {'all': 'すごい', 'interjections': [], 'no_emotem': 'すごい'})
+                  {'all': 'すごい', 'interjections': [], 'no_emotem': 'すごい', 'lemma_words': ['すごい']})
 
 def test__find_emoticon():
     assert_equals(mla._find_emoticon('(;´Д`)'), ['(;´Д`)'])
@@ -30,10 +32,19 @@ def test__find_emotem():
                   {'emotikony': ['´Д`', 'Д`', '´Д'], 'interjections': ['！']})
 
 def test__find_emotion():
-    assert_equals(mla._find_emotion('嫌い'), {'iya': ['嫌', '嫌い']})
+    lemmas = {'all': '嫌い', 'lemma_words': ['嫌い']}
+    assert_equals(mla._find_emotion(lemmas), {'iya': ['嫌い']})
+    lemmas_with_interjections = {'all': 'え！嫌い', 'interjections': ['え'], 'lemma_words': ['え','！', '嫌い']}
+    assert_equals(mla._find_emotion(lemmas_with_interjections), {'iya': ['嫌い']})
+    empty_lemmas = {'all': [], 'interjections': [], 'no_emotem': [], 'lemma_words': []}
+    assert_equals(mla._find_emotion(empty_lemmas), None)
+    lemmas = {'all': '気持ちがよい', 'lemma_words': ['気持ち', 'が', 'よい']}
+    assert_equals(mla._find_emotion(lemmas), {'yorokobi': ['気持ちがよい']})
 
 def test__estimate_sentiment_orientation():
     assert_equals(mla._estimate_sentiment_orientation({'iya': ['嫌い', '嫌']}), 'NEGATIVE')
+    assert_equals(mla._estimate_sentiment_orientation({'yorokobi': ['嫌い*CVS']}), 'POSITIVE')
+    assert_equals(mla._estimate_sentiment_orientation({'yorokobi': ['嫌い*CVS'], 'iya': ['嫌い']}), 'NEUTRAL')
 
 def test__estimate_activation():
     assert_equals(mla._estimate_activation({'iya': ['嫌い', '嫌']}), 'ACTIVE')

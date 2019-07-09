@@ -9,3 +9,4 @@ dist/*
 *.bak
 .DS_Store
 .coverage
+.cache
