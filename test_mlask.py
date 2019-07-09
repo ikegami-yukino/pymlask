@@ -45,9 +45,15 @@ def test__estimate_sentiment_orientation():
     assert_equals(mla._estimate_sentiment_orientation({'iya': ['嫌い', '嫌']}), 'NEGATIVE')
     assert_equals(mla._estimate_sentiment_orientation({'yorokobi': ['嫌い*CVS']}), 'POSITIVE')
     assert_equals(mla._estimate_sentiment_orientation({'yorokobi': ['嫌い*CVS'], 'iya': ['嫌い']}), 'NEUTRAL')
+    assert_equals(mla._estimate_sentiment_orientation({'iya': ['嫌い', '嫌'], 'aware': ['悲しい'],
+                                                       'yorokobi': ['嬉しい']}), 'mostly_NEGATIVE')
 
 def test__estimate_activation():
+    assert_equals(mla._estimate_activation({'kowa': ['怖い']}), 'ACTIVE')
+    assert_equals(mla._estimate_activation({'aware': ['悲しい']}), 'PASSIVE')
     assert_equals(mla._estimate_activation({'iya': ['嫌い', '嫌']}), 'NEUTRAL')
+    assert_equals(mla._estimate_activation({'kowa': ['怖い'], 'yasu': ['安らぐ'], 'aware': ['悲しい']}),
+                                           'mostly_PASSIVE')
 
 def test__get_representative_emotion():
     assert_equals(mla._get_representative_emotion({'iya': ['嫌い', '嫌']}), ('iya', ['嫌い', '嫌']))
