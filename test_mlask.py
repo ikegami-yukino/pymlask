@@ -38,12 +38,13 @@ def test__find_emotion():
     assert_equals(mla._find_emotion(lemmas_with_interjections), {'iya': ['嫌い']})
     empty_lemmas = {'all': [], 'interjections': [], 'no_emotem': [], 'lemma_words': []}
     assert_equals(mla._find_emotion(empty_lemmas), None)
+    lemmas = {'all': '気持ちがよい', 'lemma_words': ['気持ち', 'が', 'よい']}
+    assert_equals(mla._find_emotion(lemmas), {'yorokobi': ['気持ちがよい']})
 
 def test__estimate_sentiment_orientation():
     assert_equals(mla._estimate_sentiment_orientation({'iya': ['嫌い', '嫌']}), 'NEGATIVE')
     assert_equals(mla._estimate_sentiment_orientation({'yorokobi': ['嫌い*CVS']}), 'POSITIVE')
     assert_equals(mla._estimate_sentiment_orientation({'yorokobi': ['嫌い*CVS'], 'iya': ['嫌い']}), 'NEUTRAL')
-    assert_equals(mla._estimate_sentiment_orientation({'yorokobi': ['嫌い*CVS'], 'suki': ['嫌い*CVS'], 'iya': ['嫌い']}), 'mostly_POSITIVE')
 
 def test__estimate_activation():
     assert_equals(mla._estimate_activation({'iya': ['嫌い', '嫌']}), 'ACTIVE')
