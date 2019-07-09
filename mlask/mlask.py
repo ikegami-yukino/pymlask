@@ -228,9 +228,9 @@ class MLAsk(object):
     def _find_emotion(self, lemmas):
         """ Finding emotion word by dictionaries """
 
-        # Build all sentences comprised of words from the text (max number of words = 5)
+        # Build all sentences comprised of words from the text (max number of words = 7)
         total_length = len(lemmas['lemma_words'])
-        sentences = [''.join(lemmas['lemma_words'][i:j+1]) for i in range(total_length) for j in range(i, i + 5 if i + 5 <= total_length else total_length)]
+        sentences = [''.join(lemmas['lemma_words'][i:j+1]) for i in range(total_length) for j in range(i, i + 7 if i + 7 <= total_length else total_length)]
         text_sentences = set(sentences)
         found_emotions = collections.defaultdict(list)
         for emotion_class, emotions in self.emodic['emotion'].items():
