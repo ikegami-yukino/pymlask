@@ -271,7 +271,7 @@ class MLAsk(object):
             how_many_activation = ''.join(emotions.keys())
             how_many_activation = RE_ACTIVATION_A.sub('A', how_many_activation)
             how_many_activation = RE_ACTIVATION_D.sub('P', how_many_activation)
-            how_many_activation = RE_ACTIVATION_N.sub('NEUTRAL', how_many_activation)
+            how_many_activation = RE_ACTIVATION_N.sub('N', how_many_activation)
             count_activation_A = how_many_activation.count('A')
             count_activation_P = how_many_activation.count('P')
 
