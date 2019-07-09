@@ -35,9 +35,9 @@ Example
  emotion_analyzer = MLAsk()
  emotion_analyzer.analyze('彼のことは嫌いではない！(;´Д`)')
  # => {'text': '彼のことは嫌いではない！(;´Д`)',
- #     'emotion': defaultdict(<class 'list'>,{'yorokobi': ['嫌い*CVS'], 'suki': ['嫌い*CVS'], 'iya': ['嫌']}),
- #     'orientation': 'mostly_POSITIVE',
- #     'activation': 'ACTIVE',
+ #     'emotion': defaultdict(<class 'list'>,{'yorokobi': ['嫌い*CVS'], 'suki': ['嫌い*CVS']}),
+ #     'orientation': 'POSITIVE',
+ #     'activation': 'NEUTRAL',
  #     'emoticon': ['(;´Д`)'],
  #     'intension': 2,
  #     'intensifier': {'exclamation': ['！'], 'emotikony': ['´Д`', 'Д`', '´Д', '(;´Д`)']},

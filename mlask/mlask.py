@@ -2,7 +2,6 @@
 from __future__ import print_function
 from __future__ import unicode_literals
 import os
-import codecs
 import re
 import collections
 import pkgutil
@@ -49,7 +48,7 @@ RE_VALANCE_POS = re.compile('yasu|yorokobi|suki')
 RE_VALANCE_NEG = re.compile('iya|aware|ikari|kowa')
 RE_VALANCE_NEU = re.compile('takaburi|odoroki|haji')
 RE_ACTIVATION_A = re.compile('takaburi|odoroki|haji|ikari|kowa')
-RE_ACTIVATION_D = re.compile('yasu|aware')
+RE_ACTIVATION_P = re.compile('yasu|aware')
 RE_ACTIVATION_N = re.compile('iya|yorokobi|suki')
 
 
@@ -115,7 +114,7 @@ class MLAsk(object):
         >>> import mlask
         >>> ma = mlask.MLAsk()
         >>> ma.analyze('彼女のことが嫌いではない！(;´Д`)')
-        {'text': '彼女のことが嫌いではない！(;´Д`)', 'emotion': defaultdict(<class 'list'>, {'iya': ['嫌'], 'yorokobi': ['嫌い*CVS'], 'suki': ['嫌い*CVS']}), 'orientation': 'mostly_POSITIVE', 'activation': 'ACTIVE', 'emoticon': ['(;´Д`)'], 'intension': 2, 'intensifier': {'exclamation': ['！'], 'emotikony': ['´Д`', 'Д`', '´Д', '(;´Д`)']}, 'representative': ('yorokobi', ['嫌い*CVS'])}
+        {'text': '彼女のことが嫌いではない！(;´Д`)', 'emotion': defaultdict(<class 'list'>, {'yorokobi': ['嫌い*CVS'], 'suki': ['嫌い*CVS']}), 'orientation': 'POSITIVE', 'activation': 'NEUTRAL', 'emoticon': ['(;´Д`)'], 'intension': 2, 'intensifier': {'exclamation': ['！'], 'emotikony': ['´Д`', 'Д`', '´Д', '(;´Д`)']}, 'representative': ('yorokobi', ['嫌い*CVS'])}
         """
         # Normalizing
         text = self._normalize(text)
@@ -154,7 +153,7 @@ class MLAsk(object):
             result = {
                 'text': text,
                 'emotion': None
-                }
+            }
         return result
 
     def _normalize(self, text):
@@ -261,7 +260,7 @@ class MLAsk(object):
             else:
                 if num_negative > 0 and num_positive > 0:
                     orientation += 'mostly_'
-                orientation +='POSITIVE' if num_positive > num_negative else 'NEGATIVE'
+                orientation += 'POSITIVE' if num_positive > num_negative else 'NEGATIVE'
             return orientation
 
     def _estimate_activation(self, emotions):
@@ -270,7 +269,7 @@ class MLAsk(object):
         if emotions:
             how_many_activation = ''.join(emotions.keys())
             how_many_activation = RE_ACTIVATION_A.sub('A', how_many_activation)
-            how_many_activation = RE_ACTIVATION_D.sub('P', how_many_activation)
+            how_many_activation = RE_ACTIVATION_P.sub('P', how_many_activation)
             how_many_activation = RE_ACTIVATION_N.sub('N', how_many_activation)
             count_activation_A = how_many_activation.count('A')
             count_activation_P = how_many_activation.count('P')
