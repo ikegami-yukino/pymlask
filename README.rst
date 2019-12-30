@@ -11,10 +11,19 @@ See also http://qiita.com/yukinoi/items/ef6fb48b5e3694e9659c (in Japanese)
 
 Contributions are welcome!
 
+Dependencies
+==============
+MeCab binary
+-------------
+
+* Windows (32-bit Python): https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7WElGUGt6ejlpVXc
+* Windows (64-bit Python): https://github.com/ikegami-yukino/mecab/releases
+* macOS with Homebrew: $ brew install mecab libmecab-dev mecab-ipadic
+* Ubuntu: $ sudo apt install mecab mecab-ipadic-utf8
 
 Installation
 ==============
-Modified dictionary version
+Modified dictionary version (recommended)
 
 ::
 
@@ -43,7 +52,15 @@ Example
  #     'intensifier': {'exclamation': ['！'], 'emotikony': ['´Д`', 'Д`', '´Д', '(;´Д`)']},
  #     'representative': ('yorokobi', ['嫌い*CVS'])
  #     }
+ emotion_analyzer = mlask.MLAsk('-d /usr/local/lib/mecab/dic/mecab-ipadic-neologd')  # Use other dictionary
 
+Dictionary sources
+====================
+* 中村 明 (1993) "感情表現辞典" 東京堂出版
+* 学研辞典編集部 (2017) "感情ことば選び辞典" 学研プラス
+* Angela Ackerman, Becca Puglisi (2012) "The Emotion Thesaurus: A Writer's Guide to Character Expression" JADD Publishing. (滝本 杏奈 (訳) (2015) "感情類語辞典" フィルムアート社)
+* Angela Ackerman, Becca Puglisi (2013) "The Positive Trait Thesaurus: A Writer's Guide to Character Attributes" JADD Publishing (滝本 杏奈 (訳) (2016) "性格類語辞典 ポジティブ編" フィルムアート社)
+* Angela Ackerman, Becca Puglisi (2013) "The Negative Trait Thesaurus: A Writer's Guide to Character Attributes" JADD Publishing (滝本 杏奈 (訳) (2016) "性格類語辞典 ポジティブ編" フィルムアート社)
 
 LICENSE
 =========
