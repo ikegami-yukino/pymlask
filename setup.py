@@ -30,8 +30,9 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
         'Topic :: Text Processing :: Linguistic'
-        ],
+    ],
     long_description='%s\n\n%s' % (open('README.rst', encoding='utf8').read(),
                                    open('CHANGES.rst', encoding='utf8').read()),
     package_data={'mlask': ['emotemes/*.txt', 'emotions/*.txt']},

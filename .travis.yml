@@ -4,11 +4,8 @@ python:
   - "3.4"
   - "3.5"
   - "3.6"
-matrix:
-  include:
-    - python: 3.7
-      dist: xenial
-      sudo: true
+  - "3.7"
+  - "3.8"
 before_install:
   - sudo apt-get update -qq
   - wget http://ftp.sjtu.edu.cn/ubuntu/pool/universe/m/mecab/libmecab2_0.996-1.1_amd64.deb
