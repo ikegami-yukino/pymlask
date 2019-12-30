@@ -18,8 +18,8 @@ MeCab binary
 
 * Windows (32-bit Python): https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7WElGUGt6ejlpVXc
 * Windows (64-bit Python): https://github.com/ikegami-yukino/mecab/releases
-* macOS with Homebrew: $ brew install mecab libmecab-dev mecab-ipadic
-* Ubuntu: $ sudo apt install mecab mecab-ipadic-utf8
+* macOS with Homebrew: $ brew install mecab mecab-ipadic
+* Ubuntu: $ sudo apt install mecab libmecab-dev mecab-ipadic-utf8
 
 Installation
 ==============
