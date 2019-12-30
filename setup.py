@@ -5,7 +5,7 @@ import pkgutil
 import re
 from setuptools import setup
 
-install_requires = [] if pkgutil.find_loader('MeCab') else ['mecab-python-windows']
+install_requires = [] if pkgutil.find_loader('MeCab') else ['mecab']
 
 with open(os.path.join('mlask', '__init__.py'), 'r', encoding='utf8') as f:
     version = re.compile(
