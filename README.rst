@@ -77,6 +77,25 @@ ML-Ask Python: The BSD 3-Clause License
 ML-Ask (original): The BSD 3-Clause License
 (c) 2007-2013, Michal Ptaszynski, Pawel Dybala, Rafal Rzepka, Kenji Arakii. All Rights Reserved.
 
+Cited by
+=========
+
+Scientific paper
+-----------------
+- Yingying Lao, Tomoya Kishida, Junqi Zhao, Dongli Han. A Practical and Emotional Response Technique: Context-Based Sticker Suggestion Model on the Line App. In Proceedings of the 8th International Conference on Frontiers of Educational Technologies (ICFET '22), p.162–168, 2022.
+- 大澤　卓也. 「いじめ自殺」の社会問題に対するツイッター上の感情分析. 立命館産業社会論集, 第56巻, 第4号, p.85-104, 2021.
+- Yoshihiro ADACHI, Tomohiro KONDO, Takamitsu KOBAYASHI, Nao ETANI, Kaito ISHII. Emotion Analysis of Japanese Sentences Using an Emotion-word Dictionary. Journal of the Visualization Society of Japan, Volume 41, Issue 161, p.21-27, 2022.
+- 吉田　光男， 鳥海　不二夫， 榊　剛史. COVID-19流行下でのインフォデミック ―Twitterで流れたGoToトラベルに関する情報―. オペレーションズ・リサーチ, 2021年4月号, p.216-223, 2021.
+- Tomoya Kitayama. COVID-19 and its impact on the national examination for pharmacists in Japan: An SNS text analysis. PLoS ONE, 18(6), 2023.
+- 山田耕. コロナ禍の中で語られた「広島の観光」とは？ ― 広島観光客数を Twitter から予測する ―. 安田女子大学 現代ビジネス学会誌 2022 年度, Vol.11, p.28-56, 2023.
+- 星野 雄介. ⾃然⾔語処理技術を⽤いた新型コロナウイルスに関する新聞社説の予備的分析 ―新聞社ごとの違いと研究の展望―. 武蔵野大学経営研究所紀要, 第5号, p.113-148, 2022.
+
+Blog
+------
+- 【Python】PymlaskでML-ASK感情分析をやってみた話  |  ミナピピンの研究室: https://tkstock.site/2022/07/07/python-pymlask-ml-ask-emotion-naturallanguage/
+- CentOS8にML-AskのPythonライブラリのインストール - 株式会社CoLabMix: https://colabmix.co.jp/tech-blog/centos8-ml-ask-python/
+- VS Code上でPyML-Askを実行した際のImportError: https://teratail.com/questions/ex9rdi58hl634f
+
 .. |travis| image:: https://travis-ci.org/ikegami-yukino/pymlask.svg?branch=master
     :target: https://travis-ci.org/ikegami-yukino/pymlask
     :alt: travis-ci.org
