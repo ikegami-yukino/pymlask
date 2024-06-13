@@ -174,7 +174,8 @@ class MLAsk(object):
                 if len(row) < 2:
                     continue
                 surface = row[0]
-                features = row[1].split(',')
+                # features = row[1].split(',')
+                features = row[1:]
                 if len(features) > 7:
                     (pos, subpos, lemma) = features[0], features[1], features[6]
                 elif len(features) == 1:
