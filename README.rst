@@ -1,7 +1,7 @@
 pymlask
 ===================
 
-|travis| |coveralls| |pyversion| |version| |license|
+|coveralls| |pyversion| |version| |license|
 
 pymlask is a Python version of ML-Ask (eMotive eLement and Expression Analysis system)
 
@@ -96,9 +96,6 @@ Blog
 - CentOS8にML-AskのPythonライブラリのインストール - 株式会社CoLabMix: https://colabmix.co.jp/tech-blog/centos8-ml-ask-python/
 - VS Code上でPyML-Askを実行した際のImportError: https://teratail.com/questions/ex9rdi58hl634f
 
-.. |travis| image:: https://travis-ci.org/ikegami-yukino/pymlask.svg?branch=master
-    :target: https://travis-ci.org/ikegami-yukino/pymlask
-    :alt: travis-ci.org
 
 .. |coveralls| image:: https://coveralls.io/repos/ikegami-yukino/pymlask/badge.png
     :target: https://coveralls.io/r/ikegami-yukino/pymlask
