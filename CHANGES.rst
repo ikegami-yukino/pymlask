@@ -1,6 +1,11 @@
 CHANGES
 =======
 
+0.3.3 (2024-07-26)
+------------------------
+
+- Support mecab and mecab-python3 simultaneously (thanks @phuongdo)
+
 0.3.2 (2019-07-09)
 -------------------------
 
