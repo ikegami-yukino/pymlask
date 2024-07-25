@@ -20,6 +20,7 @@ Original Perl version by Michal Ptaszynski
 Python version by Yukino Ikegami
 """
 PY2 = True if version_info < (3,) else False
+IS_MECAB_PYTHON3 = bool(getattr(MeCab, "Tagger_version", False))
 
 # cvs stands for "Contextual Valence Shifters"
 RE_PARTICLES = '[だとはでがはもならじゃちってんすあ]*'
@@ -80,7 +81,7 @@ class MLAsk(object):
 
         self.emodic = {'emotem': {}, 'emotion': {}}
 
-        # Reading dictionaries of syntactical indicator of emotiveness
+        # Reading dictionaries of syntactical indicators of emotiveness
         emotemy = ('interjections', 'exclamation', 'vulgar', 'endearments', 'emotikony', 'gitaigo')
         for emotem_class in emotemy:
             data = pkgutil.get_data('mlask',
@@ -101,7 +102,7 @@ class MLAsk(object):
 
         Parameters
         ----------
-        text : str
+        text: str
             Target text.
 
         Return
@@ -161,7 +162,7 @@ class MLAsk(object):
         return text
 
     def _lexical_analysis(self, text):
-        """ By MeCab, doing lemmatisation and finding emotive indicator """
+        """ By MeCab, doing lemmatization and finding emotive indicator """
         lemmas = {'all': '', 'interjections': [], 'no_emotem': [], 'lemma_words': []}
 
         if PY2:
@@ -174,8 +175,10 @@ class MLAsk(object):
                 if len(row) < 2:
                     continue
                 surface = row[0]
-                # features = row[1].split(',')
-                features = row[1:]
+                if IS_MECAB_PYTHON3:
+                    features = row[1:]
+                else:
+                    features = row[1].split(',')
                 if len(features) > 7:
                     (pos, subpos, lemma) = features[0], features[1], features[6]
                 elif len(features) == 1:
@@ -238,7 +241,7 @@ class MLAsk(object):
                 if emotion not in text_sentences:
                     continue
                 cvs_regex = re.compile('%s(?:%s(%s))' % (emotion, RE_PARTICLES, RE_CVS))
-                # if there is Contextual Valence Shifters
+                # If there is Contextual Valence Shifters
                 if cvs_regex.findall(lemmas['all']):
                     for new_emotion_class in CVS_TABLE[emotion_class]:
                         found_emotions[new_emotion_class].append(emotion + "*CVS")
